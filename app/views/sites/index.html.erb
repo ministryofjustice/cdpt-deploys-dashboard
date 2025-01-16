@@ -1,0 +1,28 @@
+<h1 class="govuk-heading-xl">Deployments Dashboard</h1>
+
+<%= govuk_table do |table|
+  table.with_head do |head|
+    head.with_row do |row|
+      row.with_cell(text: 'Site')
+      row.with_cell(text: 'Branch')
+      row.with_cell(text: 'Ticket')
+      row.with_cell(text: '')
+    end;
+  end;
+  @sites.all.each do |site|
+    table.with_body do |body|
+      body.with_row do |row|
+        row.with_cell(text: govuk_link_to(site.name, site.main_url))
+        row.with_cell(text: site.branch)
+        if site.jira.present?
+          row.with_cell(text: govuk_link_to('JIRA', site.jira_link))
+        else
+          row.with_cell(text: "")
+        end
+        row.with_cell(text: govuk_link_to('edit', edit_site_path(site)))
+      end;
+    end;
+  end;
+end %>
+
+<p><%= govuk_link_to('Add Site', new_site_path) %></p>
