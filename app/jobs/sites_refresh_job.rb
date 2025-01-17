@@ -1,9 +1,7 @@
 class SitesRefreshJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    Site.all.each do |site|
-      site.refresh!
-    end
+  def perform(*_args)
+    Site.all.find_each(&:refresh!)
   end
 end

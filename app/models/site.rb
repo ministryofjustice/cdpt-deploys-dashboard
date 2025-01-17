@@ -31,10 +31,10 @@ class Site < ApplicationRecord
   end
 
   def jira
-    return unless branch.present?
+    return if branch.blank?
 
     if branch.downcase.starts_with?("cdpt")
-      "CDPT-#{branch.delete("^0-9")}"
+      "CDPT-#{branch.delete('^0-9')}"
     end
   end
 
