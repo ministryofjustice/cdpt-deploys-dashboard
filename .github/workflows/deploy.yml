@@ -112,4 +112,4 @@ jobs:
 
       - name: Rollout restart deployment
         run: |
-          kubectl -n ${KUBE_NAMESPACE} apply -f config/kubernetes/production
+          kubectl -n ${KUBE_NAMESPACE} apply -f config/kubernetes
