@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "sites#index"
 
-  resources :sites, only: %i[new edit create update]
+  resources :sites
 end

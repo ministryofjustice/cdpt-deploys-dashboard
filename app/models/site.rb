@@ -1,12 +1,16 @@
 class Site < ApplicationRecord
   validates :url, :name, :prefix, presence: true
 
-  def refresh!
+  def refresh
     json = JSON.parse(HTTParty.get(url).body)
     self.built_at = json["build_date"]
     self.commit = json["git_commit"] || json["commit_id"]
     self.tag = json["build_tag"]
     save!
+    true
+  rescue StandardError
+    errors.add(:url)
+    false
   end
 
   def main_url

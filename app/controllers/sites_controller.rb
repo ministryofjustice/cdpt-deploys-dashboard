@@ -13,8 +13,7 @@ class SitesController < ApplicationController
 
   def create
     @site = Site.new(site_params)
-    if @site.save
-      @site.refresh!
+    if @site.refresh && @site.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
@@ -23,12 +22,18 @@ class SitesController < ApplicationController
 
   def update
     @site = Site.find(params[:id])
-    if @site.update(site_params)
-      @site.refresh!
+    @site.assign_attributes(site_params)
+    if @site.refresh && @site.save
       redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @site = Site.find(params[:id])
+    @site.destroy!
+    redirect_to root_path
   end
 
   def site_params

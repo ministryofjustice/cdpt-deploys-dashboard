@@ -5,7 +5,8 @@
     head.with_row do |row|
       row.with_cell(text: 'Site')
       row.with_cell(text: 'Branch')
-      row.with_cell(text: 'Ticket')
+      row.with_cell(text: 'Built At')
+      row.with_cell(text: '')
       row.with_cell(text: '')
     end;
   end;
@@ -14,6 +15,7 @@
       body.with_row do |row|
         row.with_cell(text: govuk_link_to(site.name, site.main_url))
         row.with_cell(text: site.branch)
+        row.with_cell(text: site.built_at.to_fs(:short))
         if site.jira.present?
           row.with_cell(text: govuk_link_to('JIRA', site.jira_link))
         else

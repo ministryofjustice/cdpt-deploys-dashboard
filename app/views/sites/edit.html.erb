@@ -3,3 +3,7 @@
 <p><%= govuk_link_to "Back", root_path %></p>
 
 <%= render "form", site: @site %>
+
+<%= form_for @site, method: :delete do |f| %>
+  <%= f.govuk_submit 'Delete', warning: true %>
+<% end %>
