@@ -95,7 +95,7 @@ jobs:
           ECR_URL: ${{ vars.ECR_URL }}
           IMAGE_TAG: ${{ env.SHA }}
         run: |
-          cat config/kubernetes/production/deployment.tpl | envsubst > config/kubernetes/production/deployment.yaml
+          cat config/kubernetes/deployment.tpl | envsubst > config/kubernetes/deployment.yaml
 
       - name: Tag build and push to ECR
         run: |
