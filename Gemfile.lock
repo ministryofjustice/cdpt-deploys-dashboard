@@ -79,8 +79,6 @@ GEM
     benchmark (0.4.0)
     bigdecimal (3.1.9)
     bindex (0.8.1)
-    bootsnap (1.18.4)
-      msgpack (~> 1.2)
     brakeman (7.0.0)
       racc
     builder (3.3.0)
@@ -151,7 +149,6 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.25.4)
-    msgpack (1.7.5)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
     net-imap (0.5.5)
@@ -282,11 +279,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    solid_cable (3.0.5)
-      actioncable (>= 7.2)
-      activejob (>= 7.2)
-      activerecord (>= 7.2)
-      railties (>= 7.2)
     solid_cache (1.0.6)
       activejob (>= 7.2)
       activerecord (>= 7.2)
@@ -308,11 +300,6 @@ GEM
     sqlite3 (2.5.0-x86_64-linux-musl)
     stringio (3.1.2)
     thor (1.3.2)
-    thruster (0.1.10)
-    thruster (0.1.10-aarch64-linux)
-    thruster (0.1.10-arm64-darwin)
-    thruster (0.1.10-x86_64-darwin)
-    thruster (0.1.10-x86_64-linux)
     timeout (0.4.3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -352,7 +339,6 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  bootsnap
   brakeman
   capybara
   cssbundling-rails (~> 1.4)
@@ -366,11 +352,9 @@ DEPENDENCIES
   rails (~> 8.0.1)
   rubocop-govuk
   selenium-webdriver
-  solid_cable
   solid_cache
   solid_queue
   sqlite3 (>= 2.1)
-  thruster
   web-console
 
 BUNDLED WITH

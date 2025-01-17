@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cdpt-deploys-dashboard-ingress
+  namespace: cdpt-deploys-dashboard
+  annotations:
+    external-dns.alpha.kubernetes.io/set-identifier: cdpt-deploys-dashboard-ingress-cdpt-deploys-dashboard-green
+    external-dns.alpha.kubernetes.io/aws-weight: "100"
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: app-secrets
+    nginx.ingress.kubernetes.io/enable-modsecurity: "true"
+    nginx.ingress.kubernetes.io/modsecurity-snippet: |
+      SecRuleEngine On
+      SecDefaultAction "phase:2,pass,log,tag:github_team=central-digital-product-team,tag:namespace=cdpt-deploys-dashboard"
+spec:
+  ingressClassName: modsec
+  tls:
+  - hosts:
+    - cdpt-deploys-dashboard.apps.live.cloud-platform.service.justice.gov.uk
+  rules:
+  - host: cdpt-deploys-dashboard.apps.live.cloud-platform.service.justice.gov.uk
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: cdpt-deploys-dashboard-service
+            port:
+              number: 3000

@@ -1,0 +1,47 @@
+name: CI Workflow
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+
+    env:
+      RAILS_ENV: test
+      RACK_ENV: test
+      DEV_TOOLS_ENABLED: "1"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Install packages
+        run: yarn install --frozen-lockfile
+
+      - name: Precompile assets
+        run: bin/rails assets:precompile
+
+      - name: Lint Ruby files
+        run: bundle exec rubocop
+
+      - name: Security audit application code
+        run: bundle exec brakeman -q
+
+  build-and-deploy:
+    needs: test
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
