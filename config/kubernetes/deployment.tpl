@@ -24,17 +24,17 @@ spec:
           ports:
             - containerPort: 3000
           command: ["./config/docker/entrypoint-webapp.sh"]
-          envFrom:
-            - configMapRef:
-              name: environment-variables
-            - secretRef:
-              name: app-secrets
           env:
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
                   name: rds-postgresql-instance-output
                   key: url
+          envFrom:
+            - configMapRef:
+              name: environment-variables
+            - secretRef:
+              name: app-secrets
           livenessProbe:
             httpGet:
               path: /up
