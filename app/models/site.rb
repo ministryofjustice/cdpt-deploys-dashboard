@@ -34,7 +34,7 @@ class Site < ApplicationRecord
     return if branch.blank?
 
     if branch.downcase.starts_with?("cdpt")
-      "CDPT-#{branch.delete('^0-9')}"
+      "CDPT-#{branch.match(/\d+/)}"
     end
   end
 
