@@ -16,6 +16,7 @@ FROM base as builder
 RUN apk add --no-cache \
     ruby-dev \
     build-base \
+    postgresql-dev \
     yarn
 
 # Copy required files
