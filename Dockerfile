@@ -4,7 +4,7 @@ WORKDIR /app
 
 # tzdata: required to set timezone
 RUN apk add --no-cache \
-    sqlite \
+    postgresql-client \
     tzdata
 
 # Ensure latest rubygems is installed
