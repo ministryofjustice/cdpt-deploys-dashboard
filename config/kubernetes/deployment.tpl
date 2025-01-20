@@ -32,9 +32,9 @@ spec:
                   key: url
           envFrom:
             - configMapRef:
-              name: environment-variables
+                name: environment-variables
             - secretRef:
-              name: app-secrets
+                name: app-secrets
           livenessProbe:
             httpGet:
               path: /up
