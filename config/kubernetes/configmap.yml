@@ -3,6 +3,7 @@ data:
   ENV: 'production'
   RAILS_ENV: 'production'
   RAILS_SERVE_STATIC_FILES: 'true'
+  SOLID_QUEUE_IN_PUMA: 'true'
 kind: ConfigMap
 metadata:
   name: environment-variables
