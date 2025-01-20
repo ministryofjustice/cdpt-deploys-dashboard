@@ -30,4 +30,4 @@ spec:
                 - configMapRef:
                     name: environment-variables
                 - secretRef:
-                    name: app-secretsname: app-secrets
+                    name: app-secrets
