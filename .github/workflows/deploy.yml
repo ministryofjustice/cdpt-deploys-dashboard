@@ -89,12 +89,13 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
         id: login-ecr
 
-      - name: Update image tag
+      - name: Update image tags
         env:
           ECR_URL: ${{ vars.ECR_URL }}
           IMAGE_TAG: ${{ env.SHA }}
         run: |
           cat config/kubernetes/deployment.tpl | envsubst > config/kubernetes/deployment.yaml
+          cat config/kubernetes/cron-sites-refresher.tpl | envsubst > config/kubernetes/cron-sites-refresher.yaml
 
       - name: Tag build and push to ECR
         run: |
