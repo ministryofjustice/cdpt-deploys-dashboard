@@ -26,9 +26,15 @@ spec:
           command: ["./config/docker/entrypoint-webapp.sh"]
           envFrom:
             - configMapRef:
-                name: environment-variables
+              name: environment-variables
             - secretRef:
-                name: app-secrets
+              name: app-secrets
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: rds-postgresql-instance-output
+                  key: url
           livenessProbe:
             httpGet:
               path: /up
