@@ -29,3 +29,9 @@
 
 en:
   hello: "Hello world"
+
+  helpers:
+    hint:
+      site:
+        url: URL of site status page that shows current deploy details
+        prefix: prefix for site used in docker tag

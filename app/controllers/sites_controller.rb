@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
   def index
-    @sites = Site.all.order(:name)
+    @sites = Site.all.order(:name, :environment)
   end
 
   def new
@@ -37,6 +37,6 @@ class SitesController < ApplicationController
   end
 
   def site_params
-    params.expect(site: %i[name url prefix])
+    params.expect(site: %i[name environment url prefix])
   end
 end

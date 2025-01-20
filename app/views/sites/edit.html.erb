@@ -1,6 +1,6 @@
 <h1 class="govuk-heading-xl">Edit Site</h1>
 
-<p><%= govuk_link_to "Back", root_path %></p>
+<p><%= govuk_link_to "Back", root_path, no_visited_state: true %></p>
 
 <%= render "form", site: @site %>
 

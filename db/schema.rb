@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_20_142713) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_20_151443) do
   create_table "sites", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -20,6 +20,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_20_142713) do
     t.string "commit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "environment"
   end
 
   create_table "solid_queue_blocked_executions", force: :cascade do |t|

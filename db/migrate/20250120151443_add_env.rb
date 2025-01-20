@@ -1,0 +1,5 @@
+class AddEnv < ActiveRecord::Migration[8.0]
+  def change
+    add_column :sites, :environment, :string
+  end
+end
