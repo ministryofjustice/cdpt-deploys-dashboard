@@ -8,7 +8,7 @@ gem "jsbundling-rails", "~> 1.3"
 gem "pg"
 gem "propshaft"
 gem "puma", ">= 5.0"
-gem "rails", "~> 8.0.2"
+gem "rails", "~> 8.0.4"
 gem "sqlite3", ">= 2.1"
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
