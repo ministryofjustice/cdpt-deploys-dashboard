@@ -79,7 +79,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.3)
     base64 (0.3.0)
-    bigdecimal (3.3.1)
+    bigdecimal (4.0.1)
     bindex (0.8.1)
     brakeman (7.1.1)
       racc
@@ -124,7 +124,7 @@ GEM
       html-attributes-utils (~> 1)
     html-attributes-utils (1.0.2)
       activesupport (>= 6.1.4.4)
-    httparty (0.23.2)
+    httparty (0.24.0)
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -154,8 +154,8 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.27.0)
-    multi_xml (0.7.2)
-      bigdecimal (~> 3.1)
+    multi_xml (0.8.0)
+      bigdecimal (>= 3.1, < 5)
     net-imap (0.5.12)
       date
       net-protocol
