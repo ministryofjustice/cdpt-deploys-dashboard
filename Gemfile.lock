@@ -124,7 +124,7 @@ GEM
       html-attributes-utils (~> 1)
     html-attributes-utils (1.0.2)
       activesupport (>= 6.1.4.4)
-    httparty (0.24.0)
+    httparty (0.24.2)
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -155,7 +155,7 @@ GEM
     mini_mime (1.1.5)
     minitest (6.0.1)
       prism (~> 1.5)
-    multi_xml (0.8.0)
+    multi_xml (0.8.1)
       bigdecimal (>= 3.1, < 5)
     net-imap (0.6.2)
       date
