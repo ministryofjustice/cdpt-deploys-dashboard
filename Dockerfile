@@ -1,4 +1,4 @@
-FROM ruby:3.3.6-alpine as base
+FROM ruby:3.3.11-alpine as base
 
 WORKDIR /app
 
@@ -17,6 +17,7 @@ RUN apk add --no-cache \
     ruby-dev \
     build-base \
     postgresql-dev \
+    yaml-dev \
     yarn
 
 # Copy required files
