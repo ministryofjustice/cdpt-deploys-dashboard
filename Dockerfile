@@ -17,6 +17,7 @@ RUN apk add --no-cache \
     ruby-dev \
     build-base \
     postgresql-dev \
+    yaml-dev \
     yarn
 
 # Copy required files
