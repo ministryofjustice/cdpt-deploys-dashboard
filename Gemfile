@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby file: ".ruby-version"
+
 gem "cssbundling-rails", "~> 1.4"
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
