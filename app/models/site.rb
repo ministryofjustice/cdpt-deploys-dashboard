@@ -33,8 +33,8 @@ class Site < ApplicationRecord
   def jira
     return if branch.blank?
 
-    if branch.downcase.starts_with?("cdpt")
-      "CDPT-#{branch.match(/\d+/)}"
+    if branch.downcase.starts_with?("cdptkan")
+      "CDPTKAN-#{branch.match(/\d+/)}"
     end
   end
 
