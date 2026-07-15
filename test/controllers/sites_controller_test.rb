@@ -6,7 +6,7 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     @site = sites(:one)
     @params = @site.slice(:name, :environment, :url, :prefix)
     stub_request(:get, @site.url).to_return(
-      body: { build_date: @site.built_at, git_commit: @site.commit, build_tag: @site.tag }.to_json
+      body: { build_date: @site.built_at, git_commit: @site.commit, build_tag: @site.tag }.to_json,
     )
   end
 

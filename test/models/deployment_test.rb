@@ -10,7 +10,7 @@ class DeploymentTest < ActiveSupport::TestCase
 
     assert_equal(
       { build_date: "2024-01-02", commit_id: "abc123", build_tag: "v1.0.0" },
-      Deployment.new(env).info
+      Deployment.new(env).info,
     )
   end
 end

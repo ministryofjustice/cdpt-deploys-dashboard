@@ -20,7 +20,7 @@ class SiteTest < ActiveSupport::TestCase
 
   test "refresh updates build attributes from response" do
     stub_request(:get, @site.url).to_return(
-      body: { "build_date" => "2024-01-02T03:04:05Z", "git_commit" => "abc123", "build_tag" => "example-main-abc123" }.to_json
+      body: { "build_date" => "2024-01-02T03:04:05Z", "git_commit" => "abc123", "build_tag" => "example-main-abc123" }.to_json,
     )
 
     assert @site.refresh
@@ -31,7 +31,7 @@ class SiteTest < ActiveSupport::TestCase
 
   test "refresh falls back to commit_id when git_commit missing" do
     stub_request(:get, @site.url).to_return(
-      body: { "commit_id" => "def456" }.to_json
+      body: { "commit_id" => "def456" }.to_json,
     )
 
     assert @site.refresh
