@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Example Service
+  environment: dev
+  url: https://example.com/ping
+  prefix: example
+  tag: example-main-abc123
+  commit: abc123
+  built_at: <%= Time.current %>
+
+two:
+  name: Another Service
+  environment: prod
+  url: https://another.example.com/ping
+  prefix: another
+  tag: another-main-def456
+  commit: def456
+  built_at: <%= Time.current %>
