@@ -17,7 +17,7 @@
         row.with_cell(text: govuk_link_to(site.name, site.main_url, no_visited_state: true))
         row.with_cell(text: site.environment)
         row.with_cell(text: site.branch)
-        row.with_cell(text: site.built_at.to_fs(:short))
+        row.with_cell(text: site.built_at&.to_fs(:short) || "Not yet built")
         if site.jira.present?
           row.with_cell(text: govuk_link_to('JIRA', site.jira_link, no_visited_state: true))
         else
