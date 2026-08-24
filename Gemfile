@@ -15,7 +15,7 @@ gem "sqlite3", ">= 2.1"
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
 gem "solid_cache"
-gem "solid_queue"
+gem "solid_queue", ">= 1.7.0"
 
 group :development, :test do
   gem "brakeman", require: false
