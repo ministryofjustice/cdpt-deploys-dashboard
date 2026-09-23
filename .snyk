@@ -1,0 +1,14 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.5.0
+ignore:
+  SNYK-JS-BRACES-19963945:
+    - '*':
+        reason: >-
+          No fixed version is available upstream (Snyk: "There is no fixed
+          version for braces"). Transitive, dev-only dependency chain:
+          sass -> @parcel/watcher (optionalDependency, used only for
+          `sass --watch`) -> micromatch -> braces. Not exercised by our
+          build:css script and not reachable with attacker-controlled input.
+          Revisit when an upstream fix lands.
+        expires: 2026-12-22T00:00:00.000Z
+patch: {}
