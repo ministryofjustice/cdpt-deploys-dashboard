@@ -38,6 +38,9 @@ jobs:
       - name: Lint Ruby files
         run: bundle exec rubocop
 
+      - name: Run tests
+        run: bin/rails db:test:prepare && bundle exec rspec
+
       - name: Security audit application code
         run: bundle exec brakeman -q
 
