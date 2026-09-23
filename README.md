@@ -75,3 +75,10 @@ Use the dev command to run the application. This will use Foreman to start the r
 ```
 $ bin/dev
 ```
+
+#### Building the Docker image
+Use `bin/docker-build` rather than `docker build` directly — it reads `.ruby-version` and passes it as a build arg, so the image is always built with the correct Ruby version.
+
+```
+$ bin/docker-build -t cdpt-deploy-dashboard
+```
