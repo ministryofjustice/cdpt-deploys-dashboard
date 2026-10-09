@@ -40,6 +40,27 @@ RSpec.describe Site do
       expect(site.refresh).to be false
       expect(site.errors.attribute_names).to include(:url)
     end
+
+    it "fetches from metadata_url instead of url when present" do
+      site.metadata_url = "https://example.com/deploy_info"
+      request = stub_request(:get, site.metadata_url).to_return(
+        body: { "build_date" => "2024-01-02T03:04:05Z", "git_commit" => "abc123", "build_tag" => "example-main-abc123" }.to_json,
+      )
+
+      expect(site.refresh).to be true
+      expect(request).to have_been_requested
+      expect(WebMock).not_to have_requested(:get, site.url)
+    end
+
+    it "sends the shared secret header" do
+      allow(ENV).to receive(:fetch).with("DEPLOY_DASHBOARD_SHARED_SECRET", nil).and_return("test-secret")
+      request = stub_request(:get, site.url)
+        .with(headers: { "X-Deploy-Dashboard-Secret" => "test-secret" })
+        .to_return(body: { "build_date" => "2024-01-02T03:04:05Z" }.to_json)
+
+      expect(site.refresh).to be true
+      expect(request).to have_been_requested
+    end
   end
 
   describe "#main_url" do

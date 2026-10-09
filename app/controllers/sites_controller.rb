@@ -37,6 +37,6 @@ class SitesController < ApplicationController
   end
 
   def site_params
-    params.expect(site: %i[name environment url prefix])
+    params.expect(site: %i[name environment url prefix metadata_url])
   end
 end

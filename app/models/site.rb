@@ -2,7 +2,7 @@ class Site < ApplicationRecord
   validates :url, :name, :prefix, presence: true
 
   def refresh
-    json = JSON.parse(HTTParty.get(url).body)
+    json = JSON.parse(HTTParty.get(metadata_url.presence || url, headers: shared_secret_headers).body)
     self.built_at = json["build_date"]
     self.commit = json["git_commit"] || json["commit_id"]
     self.tag = json["build_tag"]
@@ -40,5 +40,11 @@ class Site < ApplicationRecord
 
   def jira_link
     "https://dsdmoj.atlassian.net/browse/#{jira}" if jira.present?
+  end
+
+private
+
+  def shared_secret_headers
+    { "X-Deploy-Dashboard-Secret" => ENV.fetch("DEPLOY_DASHBOARD_SHARED_SECRET", nil) }
   end
 end
