@@ -11,3 +11,11 @@ Site.find_or_create_by!(
   prefix: "pf",
   url: "https://peoplefinder.service.gov.uk/ping",
 )
+
+Site.find_or_create_by!(
+  name: "Contact MOJ",
+  environment: "Local",
+  prefix: "ct-public",
+  url: "http://localhost:3000/ping",
+  metadata_url: "http://localhost:3000/deploy_info",
+)

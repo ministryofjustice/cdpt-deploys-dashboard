@@ -2,6 +2,7 @@
   <%= f.govuk_text_field :name %>
   <%= f.govuk_text_field :environment %>
   <%= f.govuk_text_field :url %>
+  <%= f.govuk_text_field :metadata_url, hint: { text: "Optional. Overrides the URL used to fetch build metadata, if it requires auth or differs from the main URL." } %>
   <%= f.govuk_text_field :prefix %>
   <%= f.govuk_submit "Save" %>
 <% end %>
