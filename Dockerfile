@@ -1,4 +1,8 @@
-FROM ruby:3.4.9-alpine as base
+# Default mirrors .ruby-version (the source of truth); CI/deploy pass
+# --build-arg RUBY_VERSION=$(cat .ruby-version) explicitly so bumping that
+# file is enough to update the built image there.
+ARG RUBY_VERSION=4.0.3
+FROM ruby:${RUBY_VERSION}-alpine AS base
 
 WORKDIR /app
 
@@ -10,7 +14,7 @@ RUN apk add --no-cache \
 # Ensure latest rubygems is installed
 RUN gem update --system
 
-FROM base as builder
+FROM base AS builder
 
 # Install dependencies
 RUN apk add --no-cache \
@@ -63,6 +67,6 @@ USER 1000
 ARG APP_BUILD_DATE
 ARG APP_BUILD_TAG
 ARG APP_GIT_COMMIT
-ENV APP_BUILD_DATE ${APP_BUILD_DATE}
-ENV APP_BUILD_TAG ${APP_BUILD_TAG}
-ENV APP_GIT_COMMIT ${APP_GIT_COMMIT}
+ENV APP_BUILD_DATE=${APP_BUILD_DATE}
+ENV APP_BUILD_TAG=${APP_BUILD_TAG}
+ENV APP_GIT_COMMIT=${APP_GIT_COMMIT}
