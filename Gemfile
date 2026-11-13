@@ -20,7 +20,7 @@ gem "solid_queue", ">= 1.7.0"
 group :development, :test do
   gem "brakeman", require: false
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
-  gem "rspec-rails"
+  gem "rspec-rails", ">= 8.0.5"
   gem "rubocop-govuk", require: false
 end
 
