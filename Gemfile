@@ -3,25 +3,25 @@ source "https://rubygems.org"
 ruby file: ".ruby-version"
 
 gem "cssbundling-rails", "~> 1.4"
-gem "govuk-components"
-gem "govuk_design_system_formbuilder"
+gem "govuk-components", ">= 6.5.0"
+gem "govuk_design_system_formbuilder", ">= 6.5.0"
 gem "httparty"
 gem "jsbundling-rails", "~> 1.3"
 gem "pg"
 gem "propshaft"
-gem "puma", ">= 5.0"
-gem "rails", "~> 8.1.3"
+gem "puma", ">= 8.0.2"
+gem "rails", "~> 8.1.4"
 gem "sqlite3", ">= 2.1"
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
 gem "solid_cache"
-gem "solid_queue", ">= 1.7.0"
+gem "solid_queue", ">= 1.7.1"
 
 group :development, :test do
   gem "brakeman", require: false
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
-  gem "rspec-rails"
-  gem "rubocop-govuk", require: false
+  gem "rspec-rails", ">= 8.0.5"
+  gem "rubocop-govuk", ">= 5.2.1", require: false
 end
 
 group :development do
