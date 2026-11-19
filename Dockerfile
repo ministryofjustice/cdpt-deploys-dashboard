@@ -1,7 +1,7 @@
 # Default mirrors .ruby-version (the source of truth); CI/deploy pass
 # --build-arg RUBY_VERSION=$(cat .ruby-version) explicitly so bumping that
 # file is enough to update the built image there.
-ARG RUBY_VERSION=4.0.3
+ARG RUBY_VERSION=4.0.10
 FROM ruby:${RUBY_VERSION}-alpine AS base
 
 WORKDIR /app
