@@ -21,7 +21,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "rspec-rails", ">= 8.0.5"
-  gem "rubocop-govuk", ">= 5.2.1", require: false
+  gem "rubocop-govuk", ">= 6.0.0", require: false
 end
 
 group :development do
@@ -31,5 +31,5 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver", ">= 4.44.0"
-  gem "webmock"
+  gem "webmock", ">= 3.26.3"
 end
